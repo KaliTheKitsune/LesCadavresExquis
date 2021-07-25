@@ -34,7 +34,7 @@ GAMES
 
 # Initialize logging configuration
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.ERROR,
     format="%(asctime)s [%(levelname)s] {%(module)s} - %(funcName)s: %(message)s",
     handlers=[
         logging.FileHandler("debug.log"),
@@ -478,7 +478,7 @@ async def on_message(message):
     elif message.content.startswith('ce!invite'):
         embed = discord.Embed(
             title= "[Appuyez ici pour être redirigé vers la page d'invitation]",
-            url= "https://discord.com/api/oauth2/authorize?client_id=764439191660003370&permissions=93248&scope=bot"
+            url= f"https://discord.com/api/oauth2/authorize?client_id={bot.id}&permissions=93248&scope=bot"
         )
         await message.channel.send(embed=embed)
     elif message.content.startswith('ce!credits'):
@@ -729,5 +729,13 @@ async def on_reaction_add(reaction, user):
                 await user.send("Vous ne pouvez pas quitter une partie temps que vous n'avez pas répondu...")
                 return
 
-
-bot.run('[your token here]')
+if __name__ == '__main__':
+    token = "" # type your token here
+    if not token:
+        print("Token not found, checking for token in environment...")
+        token = os.getenv("TOKEN")
+        if token:
+            print("TOKEN FOUND")
+            
+    print("starting bot...")
+    bot.run(token)
