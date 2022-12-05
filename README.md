@@ -28,7 +28,7 @@ It's an old project that I've found on my computer, word database may have some 
 ## Code (Clone)
 
 - Clone the project: 
-    ```git clone https://github.com/KaliTheKitsune/Surimi.git``` (or your fork url)
+    ```git clone https://github.com/Kalitsune/LesCadavresExquis.git``` (or your fork url)
 
 - Create virtual environment and install dependencies:
 
